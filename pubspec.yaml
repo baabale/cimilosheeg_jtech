@@ -30,6 +30,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   cached_network_image: ^3.1.0
   modal_progress_hud_nsn: ^0.1.0-nullsafety-1
+  weather: ^2.0.1
+  geolocator: ^7.6.0
 
 dev_dependencies:
   flutter_test:

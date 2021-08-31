@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:weather/weather.dart';
 
 class WeatherContentView extends StatelessWidget {
   const WeatherContentView({
     Key? key,
+    required this.weather,
   }) : super(key: key);
+
+  final Weather weather;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +17,7 @@ class WeatherContentView extends StatelessWidget {
         RichText(
           textAlign: TextAlign.center,
           text: TextSpan(
-            text: 'Mountain View, US',
+            text: '${weather.areaName}, ${weather.country}',
             style: TextStyle(
               fontSize: 26,
               fontWeight: FontWeight.w300,
@@ -32,8 +36,9 @@ class WeatherContentView extends StatelessWidget {
         ),
         const SizedBox(height: 40),
         RichText(
+          textAlign: TextAlign.center,
           text: TextSpan(
-            text: '16.5',
+            text: weather.temperature!.celsius!.toStringAsFixed(1),
             style: TextStyle(
               fontSize: 40,
               fontWeight: FontWeight.w700,
@@ -47,7 +52,7 @@ class WeatherContentView extends StatelessWidget {
                 ),
               ),
               TextSpan(
-                text: '\n Clear Sky',
+                text: '\n ${weather.weatherDescription}',
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.w300,
